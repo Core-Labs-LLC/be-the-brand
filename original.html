@@ -1,0 +1,2092 @@
+
+<html lang="en">
+
+  <head>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme:
+        {
+          extend:
+          {
+            fontFamily:
+            {
+              'sans': ['Montserrat', 'sans-serif'],
+              'display': ['Playfair Display', 'serif'],
+            },
+            colors:
+            {
+              'brand-gold': '#ef4050',
+              'brand-dark': '#1A1A1A',
+              'brand-cream': '#F5F5F0',
+              'brand-purple': '#d0bafe',
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet">
+    <script>
+      window.FontAwesomeConfig = {
+        autoReplaceSvg: 'nest'
+      };
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+      ::-webkit-scrollbar
+      {
+        display: none;
+      }
+    </style>
+    <style>
+      @keyframes fadeInUp
+      {
+        from
+        {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to
+        {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in-up
+      {
+        animation: fadeInUp 1s ease-out forwards;
+      }
+
+      .parallax-bg
+      {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .hover-lift
+      {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .hover-lift:hover
+      {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .gradient-text
+      {
+        background: linear-gradient(135deg, #ef4050 0%, #d0bafe 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .glass-effect
+      {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* Scroll Animation Base Styles */
+      .scroll-animate {
+        opacity: 0;
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .scroll-animate.animated {
+        opacity: 1;
+      }
+
+      /* Fade Up Animation */
+      .fade-up {
+        transform: translateY(60px);
+      }
+
+      .fade-up.animated {
+        transform: translateY(0);
+      }
+
+      /* Fade Down Animation */
+      .fade-down {
+        transform: translateY(-60px);
+      }
+
+      .fade-down.animated {
+        transform: translateY(0);
+      }
+
+      /* Fade Left Animation */
+      .fade-left {
+        transform: translateX(-80px);
+      }
+
+      .fade-left.animated {
+        transform: translateX(0);
+      }
+
+      /* Fade Right Animation */
+      .fade-right {
+        transform: translateX(80px);
+      }
+
+      .fade-right.animated {
+        transform: translateX(0);
+      }
+
+      /* Scale Up Animation */
+      .scale-up {
+        transform: scale(0.85);
+      }
+
+      .scale-up.animated {
+        transform: scale(1);
+      }
+
+      /* Blur In Animation */
+      .blur-in {
+        filter: blur(10px);
+        transform: scale(0.95);
+      }
+
+      .blur-in.animated {
+        filter: blur(0);
+        transform: scale(1);
+      }
+
+      /* Rotate In Animation */
+      .rotate-in {
+        transform: perspective(1000px) rotateX(15deg) translateY(40px);
+        transform-origin: center bottom;
+      }
+
+      .rotate-in.animated {
+        transform: perspective(1000px) rotateX(0) translateY(0);
+      }
+
+      /* Flip Up Animation */
+      .flip-up {
+        transform: perspective(1000px) rotateX(-30deg);
+        transform-origin: center bottom;
+      }
+
+      .flip-up.animated {
+        transform: perspective(1000px) rotateX(0);
+      }
+
+      /* Zoom Fade Animation */
+      .zoom-fade {
+        transform: scale(1.1);
+        filter: blur(5px);
+      }
+
+      .zoom-fade.animated {
+        transform: scale(1);
+        filter: blur(0);
+      }
+
+      /* Slide Reveal Animation */
+      .slide-reveal {
+        clip-path: inset(0 100% 0 0);
+      }
+
+      .slide-reveal.animated {
+        clip-path: inset(0 0% 0 0);
+      }
+
+      /* Stagger delay classes */
+      .delay-100 { transition-delay: 0.1s; }
+      .delay-200 { transition-delay: 0.2s; }
+      .delay-300 { transition-delay: 0.3s; }
+      .delay-400 { transition-delay: 0.4s; }
+      .delay-500 { transition-delay: 0.5s; }
+      .delay-600 { transition-delay: 0.6s; }
+      .delay-700 { transition-delay: 0.7s; }
+      .delay-800 { transition-delay: 0.8s; }
+
+      /* Duration variations */
+      .duration-500 { transition-duration: 0.5s; }
+      .duration-700 { transition-duration: 0.7s; }
+      .duration-1000 { transition-duration: 1s; }
+      .duration-1200 { transition-duration: 1.2s; }
+
+      /* Special glow effect for cards */
+      .glow-animate {
+        box-shadow: 0 0 0 rgba(239, 64, 80, 0);
+        transition: box-shadow 0.6s ease, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .glow-animate.animated {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Text reveal animation */
+      .text-reveal {
+        background: linear-gradient(90deg, transparent 0%, transparent 50%, currentColor 50%, currentColor 100%);
+        background-size: 200% 100%;
+        background-position: 100% 0;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: background-position 1s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .text-reveal.animated {
+        background-position: 0% 0;
+      }
+
+      /* Counter animation helper */
+      .counter-animate {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .counter-animate.animated {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      /* Image reveal with overlay */
+      .img-reveal {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .img-reveal::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, #ef4050 0%, #d0bafe 100%);
+        transform: translateX(-101%);
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .img-reveal.animated::after {
+        transform: translateX(101%);
+      }
+
+      .img-reveal img {
+        opacity: 0;
+        transform: scale(1.2);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+      }
+
+      .img-reveal.animated img {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Line draw animation */
+      .line-draw {
+        position: relative;
+      }
+
+      .line-draw::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #ef4050, #d0bafe);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .line-draw.animated::after {
+        transform: scaleX(1);
+      }
+    </style>
+    <style data-grapesjs-styles="true">
+      *
+      {
+        box-sizing: border-box;
+      }
+
+      body
+      {
+        margin: 0;
+      }
+
+      ::-webkit-scrollbar
+      {
+        display: none;
+      }
+
+      .animate-fade-in-up
+      {
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: forwards;
+        animation-play-state: running;
+        animation-name: fadeInUp;
+        animation-timeline: auto;
+        animation-range-start: normal;
+        animation-range-end: normal;
+      }
+
+      .hover-lift
+      {
+        transition-behavior: normal, normal;
+        transition-duration: 0.3s, 0.3s;
+        transition-timing-function: ease, ease;
+        transition-delay: 0s, 0s;
+        transition-property: transform, box-shadow;
+      }
+
+      .hover-lift:hover
+      {
+        transform: translateY(-8px);
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 20px 40px;
+      }
+
+      .gradient-text
+      {
+        background-image: linear-gradient(135deg, rgb(239, 64, 80) 0%, rgb(208, 186, 254) 100%);
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-color: initial;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .glass-effect
+      {
+        background-image: initial;
+        background-position-x: initial;
+        background-position-y: initial;
+        background-size: initial;
+        background-repeat: initial;
+        background-attachment: initial;
+        background-origin: initial;
+        background-clip: initial;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+        border-top-style: solid;
+        border-right-style: solid;
+        border-bottom-style: solid;
+        border-left-style: solid;
+        border-top-color: rgba(255, 255, 255, 0.2);
+        border-right-color: rgba(255, 255, 255, 0.2);
+        border-bottom-color: rgba(255, 255, 255, 0.2);
+        border-left-color: rgba(255, 255, 255, 0.2);
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        border-image-repeat: initial;
+      }
+
+      *
+      {
+        box-sizing: border-box;
+      }
+
+      body
+      {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+      }
+
+      #testimonials
+      {
+        background-color: rgb(253, 226, 226);
+      }
+
+      #insights
+      {
+        background-color: rgb(245, 245, 240);
+        border-top-color: rgb(255, 255, 255);
+        border-right-color: rgb(255, 255, 255);
+        border-bottom-color: rgb(255, 255, 255);
+        border-left-color: rgb(255, 255, 255);
+      }
+
+      #footer
+      {
+        background-color: rgb(239, 64, 80);
+      }
+
+      #i35gl
+      {
+        color: rgb(0, 0, 0);
+      }
+
+      #i704l
+      {
+        color: rgb(0, 0, 0);
+      }
+
+      #icfjw
+      {
+        color: rgb(0, 0, 0);
+      }
+
+      #i4m5h
+      {
+        color: rgb(255, 255, 255);
+      }
+
+      #ildol
+      {
+        color: rgb(239, 64, 80);
+        background-color: rgb(244, 226, 224);
+        border-top-color: rgb(239, 64, 80);
+        border-right-color: rgb(239, 64, 80);
+        border-bottom-color: rgb(239, 64, 80);
+        border-left-color: rgb(239, 64, 80);
+      }
+
+      #ituu9
+      {
+        font-size: 18px;
+      }
+
+      #ioqfa
+      {
+        font-size: 18px;
+      }
+
+      #ib12g
+      {
+        font-size: 18px;
+      }
+
+      #il0ml
+      {
+        font-size: 18px;
+      }
+
+      #ihbi6
+      {
+        font-size: 18px;
+      }
+
+      #i8zf5
+      {
+        font-size: 18px;
+      }
+
+      #ihyv9
+      {
+        color: rgb(0, 0, 0);
+        border-top-color: rgb(0, 0, 0);
+        border-right-color: rgb(0, 0, 0);
+        border-bottom-color: rgb(0, 0, 0);
+        border-left-color: rgb(0, 0, 0);
+      }
+
+      #services
+      {
+        border-top-color: rgb(239, 64, 80);
+        border-right-color: rgb(239, 64, 80);
+        border-bottom-color: rgb(239, 64, 80);
+        border-left-color: rgb(239, 64, 80);
+      }
+
+      #ibqiy
+      {
+        height: 800px;
+        line-height: 24px;
+      }
+
+      @keyframes fadeInUp
+      {
+        0%
+        {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        100%
+        {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
+    </style>
+  </head>
+
+  <body class="font-sans bg-white">
+    <header id="header"
+      class="fixed w-full top-0 z-50 transition-all duration-300">
+      <nav class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center"><a href="#"
+              class="flex items-center"><img
+                src="https://images.squarespace-cdn.com/content/v1/5fd77fc98847cf35d3cbce34/1615858082645-LMEFH5F82L84IYW7S9GI/BeTheBrand_white_RGB.png?format=1500w"
+                alt="Be The Brand" class="h-12 w-auto"></a></div>
+          <div class="hidden lg:flex items-center space-x-10"><a
+              href="#services" id="ituu9"
+              class="text-white font-medium hover:text-brand-gold transition-colors duration-300">Services</a><a
+              href="#about" id="ioqfa"
+              class="text-white font-medium hover:text-brand-gold transition-colors duration-300">About</a><a
+              href="#process" id="ib12g"
+              class="text-white font-medium hover:text-brand-gold transition-colors duration-300">Process</a><a
+              href="#portfolio" id="il0ml"
+              class="text-white font-medium hover:text-brand-gold transition-colors duration-300">Packages</a><a
+              href="#testimonials" id="ihbi6"
+              class="text-white font-medium hover:text-brand-gold transition-colors duration-300">Testimonials</a><a
+              href="#contact" id="i8zf5"
+              class="text-white font-medium hover:text-brand-gold transition-colors duration-300">Contact</a>
+          </div>
+          <div class="hidden lg:flex items-center space-x-4"><button
+              class="px-6 py-3 bg-brand-gold text-white font-semibold rounded-full hover:bg-brand-purple transition-all duration-300 transform hover:scale-105">
+              Get Started
+            </button></div><button class="lg:hidden text-white"><i
+              class="fas fa-bars text-2xl"></i></button>
+        </div>
+      </nav>
+    </header>
+    <section id="hero-section" class="relative h-[800px] overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-brand-dark via-gray-900 to-black">
+        <img
+          src="https://storage.googleapis.com/uxpilot-auth.appspot.com/ce215cd56c-3c8a5b20cef7ce304bfb.png"
+          alt="professional modern workspace with laptop, elegant desk setup, personal branding materials, luxury office environment, cinematic lighting"
+          class="w-full h-full object-cover opacity-40"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-[#fde2e2]/90 via-[#fde2e2]/50 to-transparent"
+        id="ibqiy">
+      </div>
+      <div class="relative container mx-auto px-6 h-full flex items-center">
+        <div class="max-w-4xl animate-fade-in-up">
+          <div class="mb-6"><span
+              class="inline-block px-6 py-2 bg-brand-purple/20 text-brand-purple border border-brand-purple/30 rounded-full text-sm font-semibold tracking-wider uppercase">
+              Premium Personal Branding
+            </span></div>
+          <h1
+            class="text-7xl font-display font-bold text-white mb-6 leading-tight">
+            Build Your <span class="gradient-text">Personal Brand</span> With
+            Confidence
+          </h1>
+          <p id="i4m5h"
+            class="text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl">
+            Transform your digital presence into a powerful personal brand that
+            opens doors, builds influence, and creates lasting impact in your
+            industry.
+          </p>
+          <div class="flex flex-wrap gap-4"><button
+              class="px-8 py-4 bg-brand-gold text-white font-bold rounded-full hover:bg-brand-purple transition-all duration-300 transform hover:scale-105 shadow-xl">
+              Start Your Journey
+            </button><button id="ihyv9"
+              class="px-8 py-4 glass-effect text-white font-bold rounded-full hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+              Watch Our Story
+              <i class="fas fa-play-circle ml-2"></i></button></div>
+          <div class="mt-16 grid grid-cols-3 gap-8 max-w-2xl scroll-animate fade-up delay-300">
+            <div class="text-center">
+              <div class="text-4xl font-bold text-brand-gold mb-2">500+</div>
+              <div id="i35gl"
+                class="text-sm text-gray-400 uppercase tracking-wider">Brands
+                Built</div>
+            </div>
+            <div class="text-center border-l border-r border-white/20">
+              <div class="text-4xl font-bold text-brand-gold mb-2">98%</div>
+              <div id="i704l"
+                class="text-sm text-gray-400 uppercase tracking-wider">
+                Success Rate</div>
+            </div>
+            <div class="text-center">
+              <div class="text-4xl font-bold text-brand-gold mb-2">15+</div>
+              <div id="icfjw"
+                class="text-sm text-gray-400 uppercase tracking-wider">Years
+                Experience</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div class="animate-bounce"><i
+            class="fas fa-chevron-down text-white text-2xl"></i></div>
+      </div>
+    </section>
+    <section id="about" class="py-24 bg-[#d0bafe] text-white">
+      <div class="container mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="scroll-animate fade-left"><span
+              class="inline-block px-6 py-2 bg-brand-gold/20 text-brand-gold border border-brand-gold/30 rounded-full text-sm font-semibold tracking-wider uppercase mb-6">
+              About Us
+            </span>
+            <h2 class="text-5xl font-display font-bold mb-6 text-brand-dark">
+              We Transform Professionals Into Influential Brands
+            </h2>
+            <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+              Be The Brand Collective was founded on the belief that every
+              professional has a unique story worth sharing. We specialize in
+              helping individuals and teams discover, define, and amplify their
+              personal brands to create meaningful impact in their industries.
+            </p>
+            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+              Our team of branding experts, content strategists, and digital
+              marketers work collaboratively to craft authentic brand narratives
+              that resonate with your target audience. We don't just build
+              brands—we build legacies.
+            </p>
+            <div class="grid grid-cols-2 gap-6 mb-8 scroll-animate fade-up delay-200">
+              <div class="bg-white/30 rounded-xl p-6 border border-white/40">
+                <div class="text-3xl font-bold text-brand-gold mb-2">15+</div>
+                <div class="text-sm text-gray-700 uppercase tracking-wider">
+                  Years of Excellence</div>
+              </div>
+              <div class="bg-white/30 rounded-xl p-6 border border-white/40">
+                <div class="text-3xl font-bold text-brand-gold mb-2">500+</div>
+                <div class="text-sm text-gray-700 uppercase tracking-wider">
+                  Brands Launched</div>
+              </div>
+              <div class="bg-white/30 rounded-xl p-6 border border-white/40">
+                <div class="text-3xl font-bold text-brand-gold mb-2">50+</div>
+                <div class="text-sm text-gray-700 uppercase tracking-wider">
+                  Industries Served</div>
+              </div>
+              <div class="bg-white/30 rounded-xl p-6 border border-white/40">
+                <div class="text-3xl font-bold text-brand-gold mb-2">98%</div>
+                <div class="text-sm text-gray-700 uppercase tracking-wider">
+                  Client Satisfaction</div>
+              </div>
+            </div><button
+              class="px-8 py-4 bg-brand-gold text-white font-bold rounded-full hover:bg-brand-dark transition-all duration-300 transform hover:scale-105 shadow-xl">
+              Discover Our Story
+            </button>
+          </div>
+          <div class="relative scroll-animate fade-right delay-200">
+            <div
+              class="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl img-reveal">
+              <img
+                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/c014363fa0-88b4f0bcb9d7f6250557.png"
+                alt="professional team meeting, diverse business professionals collaborating, modern office space, personal branding consultation, luxury corporate environment"
+                class="w-full h-full object-cover">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent">
+              </div>
+              <div class="absolute bottom-8 left-8 right-8">
+                <div
+                  class="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20">
+                  <div class="flex items-start space-x-4">
+                    <div
+                      class="w-12 h-12 bg-brand-gold rounded-full flex items-center justify-center flex-shrink-0">
+                      <i class="fas fa-quote-left text-white"></i></div>
+                    <div>
+                      <p class="text-white font-medium mb-2">
+                        "Be The Brand Collective helped me transform my LinkedIn
+                        presence and establish myself as a thought leader in my
+                        industry."
+                      </p>
+                      <div class="text-brand-gold font-semibold">Sarah Mitchell,
+                        CEO</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="absolute -top-8 -right-8 w-32 h-32 bg-brand-gold/20 rounded-full blur-3xl">
+            </div>
+            <div
+              class="absolute -bottom-8 -left-8 w-40 h-40 bg-brand-gold/20 rounded-full blur-3xl">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="process" class="py-24 bg-brand-cream">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 scroll-animate fade-up"><span
+            class="inline-block px-6 py-2 bg-brand-gold/10 text-brand-gold border border-brand-gold/30 rounded-full text-sm font-semibold tracking-wider uppercase mb-4">
+            Our Process
+          </span>
+          <h2 class="text-5xl font-display font-bold text-brand-dark mb-6">
+            Your Journey to Brand Excellence
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            A proven, strategic approach to building your personal brand from
+            discovery to dominance.
+          </p>
+        </div>
+        <div class="max-w-5xl mx-auto">
+          <div id="process-step-1" class="relative mb-12 scroll-animate fade-up">
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+              <div class="md:col-span-2 flex justify-center">
+                <div
+                  class="w-20 h-20 bg-brand-gold rounded-full flex items-center justify-center text-3xl font-bold text-brand-dark shadow-xl">
+                  01
+                </div>
+              </div>
+              <div
+                class="md:col-span-10 bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                <h3 class="text-3xl font-bold text-brand-dark mb-4">Discovery
+                  &amp; Strategy</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                  We begin with an in-depth discovery session to understand your
+                  goals, values, target audience, and unique positioning. This
+                  foundation informs every aspect of your brand strategy.
+                </p>
+                <div class="grid md:grid-cols-3 gap-4">
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-lightbulb text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Brand Discovery
+                      </div>
+                      <div class="text-sm text-gray-600">Define your core
+                        identity</div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-users text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Audience
+                        Research</div>
+                      <div class="text-sm text-gray-600">Understand your market
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-chess text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Strategic
+                        Planning</div>
+                      <div class="text-sm text-gray-600">Create your roadmap
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="hidden md:block absolute left-10 top-24 bottom-0 w-0.5 bg-brand-gold/30">
+            </div>
+          </div>
+          <div id="process-step-2" class="relative mb-12 scroll-animate fade-up delay-100">
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+              <div class="md:col-span-2 flex justify-center">
+                <div
+                  class="w-20 h-20 bg-brand-gold rounded-full flex items-center justify-center text-3xl font-bold text-brand-dark shadow-xl">
+                  02
+                </div>
+              </div>
+              <div
+                class="md:col-span-10 bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                <h3 class="text-3xl font-bold text-brand-dark mb-4">Brand
+                  Identity Development</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                  We craft your visual and verbal brand identity, including
+                  messaging, tone of voice, visual elements, and brand
+                  guidelines that ensure consistency across all touchpoints.
+                </p>
+                <div class="grid md:grid-cols-3 gap-4">
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-palette text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Visual Identity
+                      </div>
+                      <div class="text-sm text-gray-600">Colors, fonts, imagery
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-comment-dots text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Brand Voice
+                      </div>
+                      <div class="text-sm text-gray-600">Messaging &amp; tone
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-book text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Brand
+                        Guidelines</div>
+                      <div class="text-sm text-gray-600">Consistency standards
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="hidden md:block absolute left-10 top-24 bottom-0 w-0.5 bg-brand-gold/30">
+            </div>
+          </div>
+          <div id="process-step-3" class="relative mb-12 scroll-animate fade-up delay-200">
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+              <div class="md:col-span-2 flex justify-center">
+                <div
+                  class="w-20 h-20 bg-brand-gold rounded-full flex items-center justify-center text-3xl font-bold text-brand-dark shadow-xl">
+                  03
+                </div>
+              </div>
+              <div
+                class="md:col-span-10 bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                <h3 class="text-3xl font-bold text-brand-dark mb-4">Content
+                  Strategy &amp; Creation</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                  We develop a comprehensive content strategy and create
+                  high-quality content that positions you as a thought leader
+                  and resonates with your target audience.
+                </p>
+                <div class="grid md:grid-cols-3 gap-4">
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-calendar-alt text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Content
+                        Calendar</div>
+                      <div class="text-sm text-gray-600">Strategic planning
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-pen-nib text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Content
+                        Creation</div>
+                      <div class="text-sm text-gray-600">Articles, posts, videos
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-rocket text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Distribution
+                      </div>
+                      <div class="text-sm text-gray-600">Multi-channel
+                        publishing</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="hidden md:block absolute left-10 top-24 bottom-0 w-0.5 bg-brand-gold/30">
+            </div>
+          </div>
+          <div id="process-step-4" class="relative mb-12 scroll-animate fade-up delay-300">
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+              <div class="md:col-span-2 flex justify-center">
+                <div
+                  class="w-20 h-20 bg-brand-gold rounded-full flex items-center justify-center text-3xl font-bold text-brand-dark shadow-xl">
+                  04
+                </div>
+              </div>
+              <div
+                class="md:col-span-10 bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                <h3 class="text-3xl font-bold text-brand-dark mb-4">Platform
+                  Optimization</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                  We optimize your presence across key platforms including
+                  LinkedIn, social media, and personal websites to maximize
+                  visibility and engagement.
+                </p>
+                <div class="grid md:grid-cols-3 gap-4">
+                  <div class="flex items-start space-x-3"><i
+                      class="fab fa-linkedin text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">LinkedIn</div>
+                      <div class="text-sm text-gray-600">Profile optimization
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-share-alt text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Social Media
+                      </div>
+                      <div class="text-sm text-gray-600">Cross-platform presence
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-globe text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Website</div>
+                      <div class="text-sm text-gray-600">Personal brand hub
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="hidden md:block absolute left-10 top-24 bottom-0 w-0.5 bg-brand-gold/30">
+            </div>
+          </div>
+          <div id="process-step-5" class="relative scroll-animate fade-up delay-400">
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+              <div class="md:col-span-2 flex justify-center">
+                <div
+                  class="w-20 h-20 bg-brand-gold rounded-full flex items-center justify-center text-3xl font-bold text-brand-dark shadow-xl">
+                  05
+                </div>
+              </div>
+              <div
+                class="md:col-span-10 bg-white rounded-2xl p-8 shadow-lg hover-lift">
+                <h3 class="text-3xl font-bold text-brand-dark mb-4">Growth &amp;
+                  Optimization</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                  We continuously monitor performance, analyze data, and
+                  optimize your brand strategy to ensure sustainable growth and
+                  maximum impact.
+                </p>
+                <div class="grid md:grid-cols-3 gap-4">
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-chart-line text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Analytics</div>
+                      <div class="text-sm text-gray-600">Performance tracking
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-cog text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Optimization
+                      </div>
+                      <div class="text-sm text-gray-600">Continuous improvement
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-start space-x-3"><i
+                      class="fas fa-trophy text-brand-gold text-xl mt-1"></i>
+                    <div>
+                      <div class="font-semibold text-brand-dark">Results</div>
+                      <div class="text-sm text-gray-600">Measurable success
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-16 scroll-animate fade-up delay-500"><button
+            class="px-10 py-4 bg-brand-dark text-white font-bold rounded-full hover:bg-brand-gold hover:text-brand-purple transition-all duration-300 transform hover:scale-105 shadow-xl">
+            Start Your Brand Journey
+          </button></div>
+      </div>
+    </section>
+    <section id="services" class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 scroll-animate fade-up"><span id="ildol"
+            class="inline-block px-6 py-2 bg-brand-purple/10 text-brand-purple border border-brand-purple/30 rounded-full text-sm font-semibold tracking-wider uppercase mb-4">
+            Our Services
+          </span>
+          <h2 class="text-5xl font-display font-bold text-brand-dark mb-6">
+            Comprehensive Brand Building Solutions
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            From strategy to execution, we provide end-to-end personal branding
+            services that elevate your presence and amplify your message.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div id="service-card-1"
+            class="bg-white rounded-2xl p-8 shadow-lg hover-lift border border-gray-100 scroll-animate scale-up glow-animate">
+            <div
+              class="w-16 h-16 bg-brand-purple/10 rounded-xl flex items-center justify-center mb-6">
+              <i class="fas fa-user-tie text-3xl text-brand-gold"></i></div>
+            <h3 class="text-2xl font-bold text-brand-dark mb-4">Personal Brand
+              Strategy</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Define your unique value proposition, target audience, and
+              positioning strategy to stand out in your industry.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Brand Discovery Workshop</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Competitive Analysis</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Positioning Strategy</span></li>
+            </ul><a href="#"
+              class="inline-flex items-center text-brand-gold font-semibold hover:text-brand-purple transition-colors">
+              Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+          </div>
+          <div id="service-card-2"
+            class="bg-white rounded-2xl p-8 shadow-lg hover-lift border border-gray-100 scroll-animate scale-up glow-animate">
+            <div
+              class="w-16 h-16 bg-brand-purple/10 rounded-xl flex items-center justify-center mb-6">
+              <i class="fab fa-linkedin text-3xl text-brand-gold"></i></div>
+            <h3 class="text-2xl font-bold text-brand-dark mb-4">LinkedIn
+              Optimization</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Transform your LinkedIn profile into a powerful lead generation
+              and networking tool that attracts opportunities.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Profile Optimization</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Content Strategy</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Engagement Growth</span></li>
+            </ul><a href="#"
+              class="inline-flex items-center text-brand-gold font-semibold hover:text-brand-purple transition-colors">
+              Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+          </div>
+          <div id="service-card-3"
+            class="bg-white rounded-2xl p-8 shadow-lg hover-lift border border-gray-100 scroll-animate scale-up glow-animate">
+            <div
+              class="w-16 h-16 bg-brand-purple/10 rounded-xl flex items-center justify-center mb-6">
+              <i class="fas fa-pen-fancy text-3xl text-brand-gold"></i></div>
+            <h3 class="text-2xl font-bold text-brand-dark mb-4">Content Creation
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Develop compelling content that resonates with your audience and
+              establishes you as a thought leader.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Content Calendar</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Copywriting Services</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Visual Content Design</span></li>
+            </ul><a href="#"
+              class="inline-flex items-center text-brand-gold font-semibold hover:text-brand-purple transition-colors">
+              Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+          </div>
+          <div id="service-card-4"
+            class="bg-white rounded-2xl p-8 shadow-lg hover-lift border border-gray-100 scroll-animate scale-up glow-animate">
+            <div
+              class="w-16 h-16 bg-brand-purple/10 rounded-xl flex items-center justify-center mb-6">
+              <i class="fas fa-share-nodes text-3xl text-brand-gold"></i></div>
+            <h3 class="text-2xl font-bold text-brand-dark mb-4">Social Media
+              Management</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Build and maintain a consistent, engaging presence across all
+              social media platforms.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Multi-Platform Strategy</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Community Management</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Analytics &amp; Reporting</span></li>
+            </ul><a href="#"
+              class="inline-flex items-center text-brand-gold font-semibold hover:text-brand-purple transition-colors">
+              Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+          </div>
+          <div id="service-card-5"
+            class="bg-white rounded-2xl p-8 shadow-lg hover-lift border border-gray-100 scroll-animate scale-up glow-animate">
+            <div
+              class="w-16 h-16 bg-brand-purple/10 rounded-xl flex items-center justify-center mb-6">
+              <i class="fas fa-camera text-3xl text-brand-gold"></i></div>
+            <h3 class="text-2xl font-bold text-brand-dark mb-4">Personal
+              Branding Photography</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Professional photography that captures your authentic personality
+              and elevates your visual brand.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Professional Headshots</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Lifestyle Photography</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Content Library</span></li>
+            </ul><a href="#"
+              class="inline-flex items-center text-brand-gold font-semibold hover:text-brand-purple transition-colors">
+              Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+          </div>
+          <div id="service-card-6"
+            class="bg-white rounded-2xl p-8 shadow-lg hover-lift border border-gray-100 scroll-animate scale-up glow-animate">
+            <div
+              class="w-16 h-16 bg-brand-purple/10 rounded-xl flex items-center justify-center mb-6">
+              <i class="fas fa-graduation-cap text-3xl text-brand-gold"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-brand-dark mb-4">Brand Coaching
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              One-on-one coaching to develop your personal brand skills and
+              confidence for long-term success.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Personal Brand Audit</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Strategic Guidance</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Accountability Support</span></li>
+            </ul><a href="#"
+              class="inline-flex items-center text-brand-gold font-semibold hover:text-brand-purple transition-colors">
+              Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+          </div>
+        </div>
+        <div class="text-center scroll-animate fade-up delay-600"><button
+            class="px-10 py-4 bg-brand-dark text-white font-bold rounded-full hover:bg-brand-gold hover:text-brand-purple transition-all duration-300 transform hover:scale-105 shadow-xl">
+            View All Services
+          </button></div>
+      </div>
+    </section>
+    <section id="testimonials" class="py-24">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 scroll-animate fade-up"><span
+            class="inline-block px-6 py-2 bg-brand-gold/20 text-brand-gold border border-brand-gold/30 rounded-full text-sm font-semibold tracking-wider uppercase mb-4">
+            Client Testimonials
+          </span>
+          <h2 class="text-5xl font-display font-bold mb-6 text-brand-dark">
+            What Our Clients Say
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Don't just take our word for it—hear from the professionals whose
+            brands we've transformed.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div id="testimonial-card-1"
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift scroll-animate scale-up glow-animate duration-1000">
+            <div class="h-80 overflow-hidden"><img
+                src="https://i.imgur.com/pzGv8Lf.jpg" alt="Alethia Jackson"
+                class="w-full h-full object-cover"></div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-dark mb-1">Alethia Jackson
+              </h3>
+              <p class="text-brand-gold font-semibold text-sm mb-4">Senior Vice
+                President, ESG &amp; Chief DEI Officer</p>
+              <div class="flex mb-4"><i
+                  class="fas fa-star text-brand-gold text-sm"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i></div>
+              <p class="text-gray-600 text-sm leading-relaxed">"Partnering with
+                Be the Brand has brought intention, visibility, creativity, and
+                purpose to my online presence. Their thoughtful approach ensures
+                that I am not missing out on opportunities to amplify the things
+                that matter most."</p>
+            </div>
+          </div>
+          <div id="testimonial-card-2"
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift scroll-animate scale-up glow-animate duration-1000">
+            <div class="h-80 overflow-hidden"><img
+                src="https://i.imgur.com/2fMpeRV.jpg" alt="Missy Edwards"
+                class="w-full h-full object-cover"></div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-dark mb-1">Missy Edwards
+              </h3>
+              <p class="text-brand-gold font-semibold text-sm mb-4">Founder,
+                Missy Edwards Strategies</p>
+              <div class="flex mb-4"><i
+                  class="fas fa-star text-brand-gold text-sm"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i></div>
+              <p class="text-gray-600 text-sm leading-relaxed">"Be the Brand has
+                brought original and creative thinking for me and my social
+                media platforms. Their innovative style creates impactful
+                strategy and have me elevate my thinking and allow for new
+                opportunities."</p>
+            </div>
+          </div>
+          <div id="testimonial-card-3"
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift scroll-animate scale-up glow-animate duration-1000">
+            <div class="h-80 overflow-hidden"><img
+                src="https://i.imgur.com/eO9HRph.jpg" alt="Susan Spencer"
+                class="w-full h-full object-cover"></div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-dark mb-1">Susan Spencer
+              </h3>
+              <p class="text-brand-gold font-semibold text-sm mb-4">President,
+                Susan Spencer Consulting</p>
+              <div class="flex mb-4"><i
+                  class="fas fa-star text-brand-gold text-sm"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i></div>
+              <p class="text-gray-600 text-sm leading-relaxed">"The brilliant
+                team behind Be The Brand brought data-driven strategies and
+                innovative thinking to my nonprofit client's social platforms.
+                Be The Brand really got our audience—then built engaging content
+                that hit all our goals and brought new energy (and eyes) to our
+                channels."</p>
+            </div>
+          </div>
+          <div id="testimonial-card-4"
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift scroll-animate scale-up glow-animate duration-1000">
+            <div class="h-80 overflow-hidden"><img
+                src="https://i.imgur.com/9Il5XLz.jpg" alt="Kate Sours"
+                class="w-full h-full object-cover"></div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-brand-dark mb-1">Kate Sours</h3>
+              <p class="text-brand-gold font-semibold text-sm mb-4">Founder and
+                CEO, Empower Strategies Consulting</p>
+              <div class="flex mb-4"><i
+                  class="fas fa-star text-brand-gold text-sm"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i><i
+                  class="fas fa-star text-brand-gold text-sm ml-1"></i></div>
+              <p class="text-gray-600 text-sm leading-relaxed">"As an
+                entrepreneur, developing a strong LinkedIn presence is
+                important. Working with Be the Brand helped me 'unstick' some of
+                the things that were holding me back while also giving me a
+                strong strategy for how to manage my profile moving forward. As
+                a business owner, my time is so limited, so I appreciated Be the
+                Brand's no nonsense approach to maximize efforts on LinkedIn in
+                minimal time. Highly recommend working with them!"</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center space-x-2 mt-12 scroll-animate fade-up delay-400">
+          <div class="w-3 h-3 bg-brand-gold rounded-full"></div>
+          <div class="w-2.5 h-2.5 bg-gray-400 rounded-full"></div>
+          <div class="w-2.5 h-2.5 bg-gray-400 rounded-full"></div>
+          <div class="w-2.5 h-2.5 bg-gray-400 rounded-full"></div>
+          <div class="w-2.5 h-2.5 bg-gray-400 rounded-full"></div>
+        </div>
+      </div>
+    </section>
+    <section id="pricing" class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 scroll-animate fade-up"><span
+            class="inline-block px-6 py-2 bg-brand-gold/10 text-brand-gold border border-brand-gold/30 rounded-full text-sm font-semibold tracking-wider uppercase mb-4">
+            Pricing Plans
+          </span>
+          <h2 class="text-5xl font-display font-bold text-brand-dark mb-6">
+            Choose Your Brand Growth Package
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Flexible pricing options designed to meet your personal branding
+            needs and budget. All packages include our proven methodology and
+            dedicated support.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div
+            class="bg-white rounded-3xl p-8 shadow-lg border-2 border-gray-200 hover-lift scroll-animate fade-up glow-animate">
+            <div class="text-center mb-8">
+              <div
+                class="w-16 h-16 bg-brand-purple/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-rocket text-brand-gold text-2xl"></i></div>
+              <h3 class="text-2xl font-bold text-brand-dark mb-2">Brand Starter
+              </h3>
+              <p class="text-gray-600 mb-6">Perfect for getting started with
+                your personal brand</p>
+              <div class="mb-6"><span
+                  class="text-5xl font-bold text-brand-dark">$2,500</span><span
+                  class="text-gray-600">/one-time</span></div>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Brand Discovery Workshop</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Brand Strategy Document</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">LinkedIn Profile Optimization</span>
+              </li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Brand Messaging Guide</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">30-Day Content Calendar</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">2 Strategy Sessions</span></li>
+            </ul><button
+              class="w-full px-8 py-4 bg-brand-dark text-white font-bold rounded-full hover:bg-brand-gold transition-all duration-300 transform hover:scale-105">
+              Get Started
+            </button>
+          </div>
+          <div
+            class="bg-gradient-to-br from-brand-purple to-brand-gold rounded-3xl p-8 shadow-2xl border-2 border-brand-gold transform scale-105 relative scroll-animate fade-up glow-animate">
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span
+                class="bg-brand-dark text-white px-6 py-2 rounded-full text-sm font-bold">
+                MOST POPULAR
+              </span></div>
+            <div class="text-center mb-8">
+              <div
+                class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-star text-white text-2xl"></i></div>
+              <h3 class="text-2xl font-bold text-white mb-2">Brand Professional
+              </h3>
+              <p class="text-white/90 mb-6">Comprehensive branding with ongoing
+                support</p>
+              <div class="mb-6"><span
+                  class="text-5xl font-bold text-white">$5,000</span><span
+                  class="text-white/80">/month</span></div>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start"><i
+                  class="fas fa-check text-white mr-3 mt-1"></i><span
+                  class="text-white">Everything in Brand Starter</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-white mr-3 mt-1"></i><span
+                  class="text-white">Full Social Media Management</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-white mr-3 mt-1"></i><span
+                  class="text-white">12 Custom Content Pieces/Month</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-white mr-3 mt-1"></i><span
+                  class="text-white">Professional Brand Photography</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-white mr-3 mt-1"></i><span
+                  class="text-white">Weekly Strategy Calls</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-white mr-3 mt-1"></i><span
+                  class="text-white">Performance Analytics Reports</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-white mr-3 mt-1"></i><span
+                  class="text-white">Priority Support</span></li>
+            </ul><button
+              class="w-full px-8 py-4 bg-white text-brand-gold font-bold rounded-full hover:bg-brand-dark hover:text-white transition-all duration-300 transform hover:scale-105">
+              Get Started
+            </button>
+          </div>
+          <div
+            class="bg-white rounded-3xl p-8 shadow-lg border-2 border-gray-200 hover-lift scroll-animate fade-up glow-animate">
+            <div class="text-center mb-8">
+              <div
+                class="w-16 h-16 bg-brand-gold/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-crown text-brand-gold text-2xl"></i></div>
+              <h3 class="text-2xl font-bold text-brand-dark mb-2">Brand
+                Enterprise</h3>
+              <p class="text-gray-600 mb-6">Full-service brand building and
+                management</p>
+              <div class="mb-6"><span
+                  class="text-3xl font-bold text-brand-dark">Contact Us</span>
+                <p class="text-gray-600 text-sm mt-2">Custom pricing for your
+                  needs</p>
+              </div>
+            </div>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Everything in Professional</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Dedicated Brand Manager</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">25+ Content Pieces/Month</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Video Content Production</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">PR &amp; Media Placement</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Speaking Engagement Support</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">Quarterly Brand Photoshoots</span></li>
+              <li class="flex items-start"><i
+                  class="fas fa-check text-brand-gold mr-3 mt-1"></i><span
+                  class="text-gray-700">White-Glove Service</span></li>
+            </ul><button
+              class="w-full px-8 py-4 bg-brand-dark text-white font-bold rounded-full hover:bg-brand-gold transition-all duration-300 transform hover:scale-105">
+              Contact Us
+            </button>
+          </div>
+        </div>
+        <div
+          class="mt-16 text-center bg-brand-cream rounded-2xl p-8 max-w-4xl mx-auto scroll-animate rotate-in delay-300">
+          <h3 class="text-2xl font-bold text-brand-dark mb-4">Not Sure Which
+            Package Is Right for You?</h3>
+          <p class="text-gray-600 mb-6">Schedule a free consultation and we'll
+            help you choose the perfect package for your goals and budget.</p>
+          <button
+            class="px-10 py-4 bg-brand-gold text-white font-bold rounded-full hover:bg-brand-dark transition-all duration-300 transform hover:scale-105 shadow-xl">
+            Schedule Free Consultation
+            <i class="fas fa-calendar-alt ml-2"></i></button>
+        </div>
+      </div>
+    </section>
+    <section id="case-study-cta"
+      class="py-24 bg-[#f5f5f0] relative overflow-hidden">
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="scroll-animate fade-left"><span
+                class="inline-block px-6 py-2 bg-brand-gold/10 text-brand-gold border border-brand-gold/30 rounded-full text-sm font-semibold tracking-wider uppercase mb-6">
+                LinkedIn Success Story
+              </span>
+              <h2 class="text-5xl font-display font-bold text-brand-dark mb-6">
+                Read Our LinkedIn Growth Case Study
+              </h2>
+              <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                Discover the exact strategies we used to transform a business
+                consultant's LinkedIn presence from 500 followers to 50,000
+                engaged followers in just 12 months.
+              </p>
+              <div class="space-y-6 mb-10">
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-14 h-14 bg-brand-purple/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-rocket text-brand-gold text-xl"></i></div>
+                  <div>
+                    <div class="font-bold text-brand-dark mb-2">10,000% Growth
+                      Rate</div>
+                    <div class="text-gray-600">From 500 to 50K followers in 12
+                      months through strategic content and engagement</div>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-14 h-14 bg-brand-purple/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-users text-brand-gold text-xl"></i></div>
+                  <div>
+                    <div class="font-bold text-brand-dark mb-2">300% Increase in
+                      Clients</div>
+                    <div class="text-gray-600">Direct business impact with
+                      premium clients reaching out proactively</div>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-14 h-14 bg-brand-purple/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-trophy text-brand-gold text-xl"></i></div>
+                  <div>
+                    <div class="font-bold text-brand-dark mb-2">Industry
+                      Recognition</div>
+                    <div class="text-gray-600">Featured in Forbes, Business
+                      Insider, and invited to speak at major conferences</div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-4"><button
+                  class="px-10 py-4 bg-brand-gold text-white font-bold rounded-full hover:bg-brand-dark transition-all duration-300 transform hover:scale-105 shadow-xl">
+                  Download Case Study
+                  <i class="fas fa-download ml-2"></i></button><button
+                  class="px-10 py-4 border-2 border-brand-dark text-brand-dark font-bold rounded-full hover:bg-brand-dark hover:text-white transition-all duration-300 transform hover:scale-105">
+                  Watch Video Summary
+                  <i class="fas fa-play ml-2"></i></button></div>
+            </div>
+            <div class="relative scroll-animate fade-right delay-200">
+              <div
+                class="bg-gradient-to-br from-brand-purple/10 to-brand-gold/10 rounded-3xl p-8 border border-gray-200 shadow-xl">
+                <div class="mb-8">
+                  <div class="flex items-center space-x-4 mb-6">
+                    <div
+                      class="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                      <img
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg"
+                        alt="Marcus Johnson" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                      <div class="font-bold text-brand-dark text-xl">Marcus
+                        Johnson</div>
+                      <div class="text-brand-gold text-sm font-semibold">
+                        Business Consultant &amp; Thought Leader</div>
+                      <div class="text-gray-600 text-sm">50K+ LinkedIn Followers
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative"><i
+                      class="fas fa-quote-left text-brand-gold text-4xl opacity-30 absolute -top-3 -left-3"></i>
+                    <p class="text-gray-700 leading-relaxed pl-8 font-medium">
+                      "The strategies Be The Brand Collective implemented
+                      completely transformed my LinkedIn presence. I went from
+                      struggling to get noticed to having Fortune 500 companies
+                      reach out to me directly. The ROI has been incredible."
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="grid grid-cols-3 gap-6 pt-6 border-t border-gray-300">
+                  <div class="text-center">
+                    <div class="text-4xl font-bold text-brand-gold mb-2">50K
+                    </div>
+                    <div class="text-xs text-gray-600 uppercase font-semibold">
+                      Followers</div>
+                  </div>
+                  <div class="text-center border-l border-r border-gray-300">
+                    <div class="text-4xl font-bold text-brand-gold mb-2">2M+
+                    </div>
+                    <div class="text-xs text-gray-600 uppercase font-semibold">
+                      Monthly Reach</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-4xl font-bold text-brand-gold mb-2">12
+                    </div>
+                    <div class="text-xs text-gray-600 uppercase font-semibold">
+                      Months</div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="absolute -top-4 -right-4 w-24 h-24 bg-brand-gold/20 rounded-full blur-2xl">
+              </div>
+              <div
+                class="absolute -bottom-4 -left-4 w-32 h-32 bg-brand-purple/20 rounded-full blur-2xl">
+              </div>
+            </div>
+          </div>
+          <div class="mt-16 text-center bg-gray-50 rounded-2xl p-8 scroll-animate rotate-in">
+            <h3 class="text-2xl font-bold text-brand-dark mb-4">What You'll
+              Learn in This Case Study</h3>
+            <div class="grid md:grid-cols-4 gap-6">
+              <div class="text-center">
+                <div
+                  class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <i class="fas fa-bullseye text-brand-gold"></i></div>
+                <div class="font-semibold text-brand-dark text-sm">Content
+                  Strategy</div>
+              </div>
+              <div class="text-center">
+                <div
+                  class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <i class="fas fa-chart-line text-brand-gold"></i></div>
+                <div class="font-semibold text-brand-dark text-sm">Growth
+                  Tactics</div>
+              </div>
+              <div class="text-center">
+                <div
+                  class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <i class="fas fa-handshake text-brand-gold"></i></div>
+                <div class="font-semibold text-brand-dark text-sm">Engagement
+                  Methods</div>
+              </div>
+              <div class="text-center">
+                <div
+                  class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <i class="fas fa-dollar-sign text-brand-gold"></i></div>
+                <div class="font-semibold text-brand-dark text-sm">Revenue
+                  Impact</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="cta-final" class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center relative overflow-hidden scroll-animate fade-up">
+          <div class="relative z-10">
+            <h2 class="text-5xl font-display font-bold text-brand-dark mb-6">
+              Your Brand Journey Starts Today
+            </h2>
+            <p class="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+              Join hundreds of professionals who have transformed their careers
+              through strategic personal branding. Let's build something
+              remarkable together.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mb-12"><button
+                class="px-10 py-4 bg-brand-gold text-white font-bold rounded-full hover:bg-brand-dark transition-all duration-300 transform hover:scale-105 shadow-xl">
+                Schedule Free Consultation
+              </button><button
+                class="px-10 py-4 bg-brand-dark text-white font-bold rounded-full hover:bg-brand-gold transition-all duration-300 transform hover:scale-105">
+                Download Brand Guide
+              </button></div>
+            <div
+              class="flex flex-wrap justify-center items-center gap-8 text-gray-600">
+              <div class="flex items-center"><i
+                  class="fas fa-check-circle text-brand-gold mr-2"></i><span>Free
+                  30-Minute Consultation</span></div>
+              <div class="flex items-center"><i
+                  class="fas fa-check-circle text-brand-gold mr-2"></i><span>No
+                  Long-Term Contracts</span></div>
+              <div class="flex items-center"><i
+                  class="fas fa-check-circle text-brand-gold mr-2"></i><span>Satisfaction
+                  Guaranteed</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="insights" class="py-24 bg-[#f5f5f0]">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 scroll-animate fade-up"><span
+            class="inline-block px-6 py-2 bg-brand-gold/20 text-brand-gold border border-brand-gold/30 rounded-full text-sm font-semibold tracking-wider uppercase mb-4">
+            Speaking &amp; Workshops
+          </span>
+          <h2 class="text-5xl font-display font-bold text-brand-dark mb-6">Book
+            our CEO for...</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Bring expert personal branding insights and strategies to your
+            audience through engaging presentations, workshops, and educational
+            sessions.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div id="speaking-card-1"
+            class="group relative overflow-hidden rounded-3xl shadow-xl hover-lift scroll-animate fade-up duration-1000">
+            <div class="h-[500px] overflow-hidden"><img
+                src="https://i.imgur.com/HOz7oal.jpg"
+                alt="professional speaking, conference keynote, business presentation, public speaker on stage"
+                class="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent flex items-end">
+              <div class="p-8 w-full text-center">
+                <h3 class="text-3xl font-bold text-white mb-3">Speeches</h3>
+                <p class="text-gray-200 mb-4 leading-relaxed">
+                  Keynote presentations that inspire and educate audiences on
+                  personal branding excellence.
+                </p>
+                <div
+                  class="flex items-center justify-center text-brand-gold font-semibold">
+                  <span>Learn More</span><i
+                    class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="speaking-card-2"
+            class="group relative overflow-hidden rounded-3xl shadow-xl hover-lift scroll-animate fade-up duration-1000">
+            <div class="h-[500px] overflow-hidden"><img
+                src="https://i.imgur.com/ZMUAZJW.jpg"
+                alt="podcast recording, interview session, professional discussion, media appearance"
+                class="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent flex items-end">
+              <div class="p-8 w-full text-center">
+                <h3 class="text-3xl font-bold text-white mb-3">Podcasts</h3>
+                <p class="text-gray-200 mb-4 leading-relaxed">
+                  In-depth conversations sharing expert insights on building
+                  powerful personal brands.
+                </p>
+                <div
+                  class="flex items-center justify-center text-brand-gold font-semibold">
+                  <span>Learn More</span><i
+                    class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="speaking-card-3"
+            class="group relative overflow-hidden rounded-3xl shadow-xl hover-lift scroll-animate fade-up duration-1000">
+            <div class="h-[500px] overflow-hidden"><img
+                src="https://i.imgur.com/PMBEmFz.jpg"
+                alt="workshop training, hands-on learning, group session, professional development"
+                class="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent flex items-end">
+              <div class="p-8 w-full text-center">
+                <h3 class="text-3xl font-bold text-white mb-3">Workshops</h3>
+                <p class="text-gray-200 mb-4 leading-relaxed">
+                  Interactive sessions providing hands-on strategies for
+                  immediate brand transformation.
+                </p>
+                <div
+                  class="flex items-center justify-center text-brand-gold font-semibold">
+                  <span>Learn More</span><i
+                    class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="speaking-card-4"
+            class="group relative overflow-hidden rounded-3xl shadow-xl hover-lift scroll-animate fade-up duration-1000">
+            <div class="h-[500px] overflow-hidden"><img
+                src="https://i.imgur.com/E1rpkoq.jpg"
+                alt="seminar presentation, educational event, business training, professional learning"
+                class="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/60 to-transparent flex items-end">
+              <div class="p-8 w-full text-center">
+                <h3 class="text-3xl font-bold text-white mb-3">Seminars</h3>
+                <p class="text-gray-200 mb-4 leading-relaxed">
+                  Comprehensive educational programs covering personal branding
+                  from strategy to execution.
+                </p>
+                <div
+                  class="flex items-center justify-center text-brand-gold font-semibold">
+                  <span>Learn More</span><i
+                    class="fas fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center scroll-animate fade-up delay-400"><button
+            class="px-10 py-4 bg-brand-gold text-white font-bold rounded-full hover:bg-brand-dark transition-all duration-300 transform hover:scale-105 shadow-xl">
+            Work With Us
+            <i class="fas fa-arrow-right ml-2"></i></button></div>
+      </div>
+    </section>
+    <section id="contact" class="py-24 bg-[#d0bafe] text-white">
+      <div class="container mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="scroll-animate fade-left"><span
+              class="inline-block px-6 py-2 bg-brand-gold/20 text-brand-gold border border-brand-gold/30 rounded-full text-sm font-semibold tracking-wider uppercase mb-6">
+              Get In Touch
+            </span>
+            <h2 class="text-5xl font-display font-bold mb-6 text-brand-dark">
+              Ready to Build Your Brand?
+            </h2>
+            <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+              Let's have a conversation about your goals and how we can help you
+              achieve them. Schedule a free consultation to get started.
+            </p>
+            <div class="space-y-6 mb-10">
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-envelope text-brand-gold text-xl"></i></div>
+                <div>
+                  <div class="font-semibold text-brand-dark mb-1">Email Us</div>
+                  <a href="mailto:hello@bethebrandcollective.com"
+                    class="text-gray-700 hover:text-brand-gold transition-colors">
+                    hello@bethebrandcollective.com
+                  </a>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-phone text-brand-gold text-xl"></i></div>
+                <div>
+                  <div class="font-semibold text-brand-dark mb-1">Call Us</div>
+                  <a href="tel:+1234567890"
+                    class="text-gray-700 hover:text-brand-gold transition-colors">
+                    +1 (234) 567-890
+                  </a>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 bg-brand-gold/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-map-marker-alt text-brand-gold text-xl"></i>
+                </div>
+                <div>
+                  <div class="font-semibold text-brand-dark mb-1">Visit Us</div>
+                  <p class="text-gray-700">
+                    123 Brand Street<br>
+                    New York, NY 10001
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex space-x-4"><a href="#"
+                class="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center hover:bg-brand-gold transition-colors"><i
+                  class="fab fa-linkedin-in text-brand-dark"></i></a><a href="#"
+                class="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center hover:bg-brand-gold transition-colors"><i
+                  class="fab fa-twitter text-brand-dark"></i></a><a href="#"
+                class="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center hover:bg-brand-gold transition-colors"><i
+                  class="fab fa-instagram text-brand-dark"></i></a><a href="#"
+                class="w-12 h-12 bg-white/30 rounded-full flex items-center justify-center hover:bg-brand-gold transition-colors"><i
+                  class="fab fa-facebook-f text-brand-dark"></i></a></div>
+          </div>
+          <div
+            class="bg-white/30 backdrop-blur-lg rounded-3xl p-10 border border-white/40 scroll-animate fade-right delay-200">
+            <form>
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div><label
+                    class="block text-sm font-semibold text-brand-dark mb-2">First
+                    Name</label><input type="text" placeholder="John"
+                    class="w-full px-4 py-3 bg-white/50 border border-white/40 rounded-xl text-brand-dark placeholder-gray-600 focus:outline-none focus:border-brand-gold transition-colors">
+                </div>
+                <div><label
+                    class="block text-sm font-semibold text-brand-dark mb-2">Last
+                    Name</label><input type="text" placeholder="Doe"
+                    class="w-full px-4 py-3 bg-white/50 border border-white/40 rounded-xl text-brand-dark placeholder-gray-600 focus:outline-none focus:border-brand-gold transition-colors">
+                </div>
+              </div>
+              <div class="mb-6"><label
+                  class="block text-sm font-semibold text-brand-dark mb-2">Email
+                  Address</label><input type="email"
+                  placeholder="john@example.com"
+                  class="w-full px-4 py-3 bg-white/50 border border-white/40 rounded-xl text-brand-dark placeholder-gray-600 focus:outline-none focus:border-brand-gold transition-colors">
+              </div>
+              <div class="mb-6"><label
+                  class="block text-sm font-semibold text-brand-dark mb-2">Phone
+                  Number</label><input type="tel" placeholder="+1 (234) 567-890"
+                  class="w-full px-4 py-3 bg-white/50 border border-white/40 rounded-xl text-brand-dark placeholder-gray-600 focus:outline-none focus:border-brand-gold transition-colors">
+              </div>
+              <div class="mb-6"><label
+                  class="block text-sm font-semibold text-brand-dark mb-2">Service
+                  Interested In</label><select
+                  class="w-full px-4 py-3 bg-white/50 border border-white/40 rounded-xl text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                  <option class="bg-white">Personal Brand Strategy</option>
+                  <option class="bg-white">LinkedIn Optimization</option>
+                  <option class="bg-white">Content Creation</option>
+                  <option class="bg-white">Social Media Management</option>
+                  <option class="bg-white">Brand Photography</option>
+                  <option class="bg-white">Brand Coaching</option>
+                </select></div>
+              <div class="mb-6"><label
+                  class="block text-sm font-semibold text-brand-dark mb-2">Message</label><textarea rows="4" placeholder="Tell us about your goals..." class="w-full px-4 py-3 bg-white/50 border border-white/40 rounded-xl text-brand-dark placeholder-gray-600 focus:outline-none focus:border-brand-gold transition-colors resize-none"></textarea>
+              </div><button type="submit"
+                class="w-full px-8 py-4 bg-brand-gold text-white font-bold rounded-full hover:bg-brand-dark transition-all duration-300 transform hover:scale-105 shadow-xl">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="footer" class="py-16 text-white">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12 scroll-animate fade-up">
+          <div class="lg:col-span-2"><img
+              src="https://images.squarespace-cdn.com/content/v1/5fd77fc98847cf35d3cbce34/1615858082645-LMEFH5F82L84IYW7S9GI/BeTheBrand_white_RGB.png?format=1500w"
+              alt="Be The Brand" class="h-12 w-auto mb-6">
+            <p class="text-gray-100 mb-6 leading-relaxed">
+              Transforming professionals into influential personal brands
+              through strategic branding, content creation, and digital presence
+              management.
+            </p>
+            <div class="flex space-x-4"><a href="#"
+                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-brand-gold transition-colors"><i
+                  class="fab fa-linkedin-in"></i></a><a href="#"
+                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-brand-gold transition-colors"><i
+                  class="fab fa-twitter"></i></a><a href="#"
+                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-brand-gold transition-colors"><i
+                  class="fab fa-instagram"></i></a><a href="#"
+                class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-brand-gold transition-colors"><i
+                  class="fab fa-facebook-f"></i></a></div>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-6">Services</h3>
+            <ul class="space-y-3">
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Personal
+                  Brand Strategy</a></li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">LinkedIn
+                  Optimization</a></li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Content
+                  Creation</a></li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Social
+                  Media Management</a></li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Brand
+                  Photography</a></li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Brand
+                  Coaching</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-6">Company</h3>
+            <ul class="space-y-3">
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">About
+                  Us</a></li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Our
+                  Process</a></li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Portfolio</a>
+              </li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Testimonials</a>
+              </li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Team</a>
+              </li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Careers</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-6">Resources</h3>
+            <ul class="space-y-3">
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Blog</a>
+              </li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Case
+                  Studies</a></li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Brand
+                  Guide</a></li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Free
+                  Tools</a></li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">Contact</a>
+              </li>
+              <li><a href="#"
+                  class="text-gray-200 hover:text-white transition-colors">FAQ</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-white/20 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-200 text-sm mb-4 md:mb-0">
+              © 2025 Be The Brand Collective. All rights reserved.
+            </p>
+            <div class="flex space-x-6"><a href="#"
+                class="text-gray-200 hover:text-white transition-colors text-sm">Privacy
+                Policy</a><a href="#"
+                class="text-gray-200 hover:text-white transition-colors text-sm">Terms
+                of Service</a><a href="#"
+                class="text-gray-200 hover:text-white transition-colors text-sm">Cookie
+                Policy</a></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Header scroll effect
+      window.addEventListener('scroll', function()
+      {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50)
+        {
+          header.style.backgroundColor = 'rgba(26, 26, 26, 0.95)';
+          header.style.backdropFilter = 'blur(10px)';
+          header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+        }
+        else
+        {
+          header.style.backgroundColor = 'transparent';
+          header.style.backdropFilter = 'none';
+          header.style.boxShadow = 'none';
+        }
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor =>
+      {
+        anchor.addEventListener('click', function(e)
+        {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute(
+            'href'));
+          if (target)
+          {
+            target.scrollIntoView(
+            {
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Scroll Animation with Intersection Observer
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -80px 0px',
+        threshold: 0.1
+      };
+
+      const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            // Optionally unobserve after animation
+            // scrollObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with scroll-animate class
+      document.querySelectorAll('.scroll-animate').forEach(el => {
+        scrollObserver.observe(el);
+      });
+
+      // Observe img-reveal elements separately
+      document.querySelectorAll('.img-reveal').forEach(el => {
+        scrollObserver.observe(el);
+      });
+
+      // Counter animation for stats
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counters = entry.target.querySelectorAll('.text-4xl, .text-3xl');
+            counters.forEach((counter, index) => {
+              counter.classList.add('counter-animate');
+              setTimeout(() => {
+                counter.classList.add('animated');
+              }, index * 150);
+            });
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      // Observe stat sections
+      document.querySelectorAll('.grid.grid-cols-3, .grid.grid-cols-2').forEach(el => {
+        if (el.querySelector('.text-4xl') || el.querySelector('.text-3xl')) {
+          counterObserver.observe(el);
+        }
+      });
+
+      // Add parallax effect to certain elements on scroll
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            
+            // Subtle parallax for blur effects
+            document.querySelectorAll('.blur-3xl, .blur-2xl').forEach(el => {
+              const speed = 0.05;
+              const yPos = -(scrolled * speed);
+              el.style.transform = `translateY(${yPos}px)`;
+            });
+            
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // Add hover animations for interactive elements
+      document.querySelectorAll('.hover-lift').forEach(el => {
+        el.addEventListener('mouseenter', function() {
+          this.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease';
+        });
+      });
+    </script>
+  </body>
+
+</html>
