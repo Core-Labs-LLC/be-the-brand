@@ -184,6 +184,274 @@
     .animate-subtle-pulse {
       animation: subtlePulse 2s ease-in-out infinite;
     }
+
+    /* Hero Aurora Background */
+    .hero-aurora {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-aurora::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(239, 64, 80, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 70% 60%, rgba(208, 186, 254, 0.25) 0%, transparent 45%),
+        radial-gradient(ellipse 50% 60% at 40% 80%, rgba(239, 64, 80, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 50% at 80% 20%, rgba(208, 186, 254, 0.2) 0%, transparent 45%);
+      animation: auroraFlow 15s ease-in-out infinite;
+    }
+
+    .hero-aurora::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(ellipse 60% 50% at 60% 30%, rgba(239, 64, 80, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 40% at 30% 70%, rgba(208, 186, 254, 0.2) 0%, transparent 45%);
+      animation: auroraFlow 20s ease-in-out infinite reverse;
+    }
+
+    @keyframes auroraFlow {
+      0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      25% {
+        transform: translate(2%, 1%) rotate(1deg);
+      }
+      50% {
+        transform: translate(-1%, 2%) rotate(-1deg);
+      }
+      75% {
+        transform: translate(-2%, -1%) rotate(0.5deg);
+      }
+    }
+
+    /* Floating Orbs */
+    .floating-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(1px);
+      animation: floatOrb 6s ease-in-out infinite;
+    }
+
+    .floating-orb-1 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(239, 64, 80, 0.4) 0%, transparent 70%);
+      top: 10%;
+      right: 10%;
+      animation-delay: 0s;
+    }
+
+    .floating-orb-2 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(208, 186, 254, 0.5) 0%, transparent 70%);
+      bottom: 20%;
+      left: 5%;
+      animation-delay: -2s;
+    }
+
+    .floating-orb-3 {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(239, 64, 80, 0.3) 0%, transparent 70%);
+      top: 60%;
+      right: 25%;
+      animation-delay: -4s;
+    }
+
+    @keyframes floatOrb {
+      0%, 100% {
+        transform: translate(0, 0) scale(1);
+      }
+      33% {
+        transform: translate(30px, -30px) scale(1.05);
+      }
+      66% {
+        transform: translate(-20px, 20px) scale(0.95);
+      }
+    }
+
+    /* Hero Text Animations */
+    .hero-title-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(40px) rotateX(-15deg);
+      animation: revealWord 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes revealWord {
+      to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg);
+      }
+    }
+
+    /* Gradient text shimmer */
+    .gradient-text-animated {
+      background: linear-gradient(
+        135deg, 
+        #ef4050 0%, 
+        #d0bafe 25%, 
+        #ef4050 50%, 
+        #d0bafe 75%, 
+        #ef4050 100%
+      );
+      background-size: 400% 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShimmer 8s ease-in-out infinite;
+    }
+
+    @keyframes gradientShimmer {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    /* Subtitle line animation */
+    .hero-subtitle {
+      position: relative;
+    }
+
+    .hero-subtitle::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, #ef4050, transparent);
+      transform: translateY(-50%);
+      opacity: 0;
+      animation: slideIn 0.6s ease-out 1.2s forwards;
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Glowing Button Effect */
+    .hero-btn-primary {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ef4050 0%, #d93e4c 100%);
+      box-shadow: 0 4px 30px rgba(239, 64, 80, 0.4);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .hero-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(239, 64, 80, 0.5);
+    }
+
+    .hero-btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .hero-btn-secondary {
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Stats counter animation */
+    .stat-number {
+      display: inline-block;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.4s ease;
+    }
+
+    .stat-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(239, 64, 80, 0.3);
+      transform: translateY(-4px);
+    }
+
+    /* Scroll indicator bounce */
+    .scroll-indicator {
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollBounce {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 0.6;
+      }
+      50% {
+        transform: translateY(8px);
+        opacity: 1;
+      }
+    }
+
+    /* Mesh grid background */
+    .mesh-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+    }
+
+    /* Glowing line */
+    .glow-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(239, 64, 80, 0.5), rgba(208, 186, 254, 0.5), transparent);
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% {
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 
@@ -219,66 +487,87 @@
   </header>
 
   <!-- Hero Section -->
-  <section id="hero" class="relative min-h-screen flex items-center bg-neutral-950 overflow-hidden">
-    <!-- Subtle gradient background -->
-    <div class="absolute inset-0 bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950"></div>
+  <section id="hero" class="relative min-h-screen flex items-center justify-center bg-neutral-950 overflow-hidden">
+    <!-- Animated Aurora Background -->
+    <div class="hero-aurora"></div>
     
-    <!-- Very subtle grid pattern -->
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    <!-- Mesh Grid Overlay -->
+    <div class="mesh-grid"></div>
     
-    <!-- Subtle radial gradient accent -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-secondary/5 rounded-full blur-3xl"></div>
+    <!-- Floating Orbs -->
+    <div class="floating-orb floating-orb-1"></div>
+    <div class="floating-orb floating-orb-2"></div>
+    <div class="floating-orb floating-orb-3"></div>
     
-    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-32 lg:py-40">
-      <div class="max-w-4xl">
-        <!-- <div class="animate-fade-in">
-          <span class="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-medium text-accent-secondary bg-accent-secondary/10 border border-accent-secondary/30 rounded-full mb-8">
-            <span class="w-1.5 h-1.5 bg-accent rounded-full"></span>
-            Premium Personal Branding
-          </span>
-        </div> -->
-        
-        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-display font-semibold text-white leading-[1.1] tracking-tight mb-8 animate-fade-in-delay-1">
-          Build a personal brand that 
-          <span class="gradient-text">opens doors</span>
-        </h1>
-        
-        <p class="text-lg lg:text-xl text-neutral-400 leading-relaxed max-w-2xl mb-12 animate-fade-in-delay-2">
+    <!-- Dark overlay for better text contrast -->
+    <div class="absolute inset-0 bg-neutral-950/40"></div>
+    
+    <!-- Main Content -->
+    <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 py-32 lg:py-40 text-center">
+      <!-- Glowing accent line -->
+      <div class="glow-line w-24 mx-auto mb-10"></div>
+      
+      <!-- Main Headline -->
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-display font-semibold text-white leading-[1.05] tracking-tight mb-8" style="perspective: 1000px;">
+        <span class="hero-title-word" style="animation-delay: 0.1s;">Build</span>
+        <span class="hero-title-word" style="animation-delay: 0.2s;">a</span>
+        <span class="hero-title-word" style="animation-delay: 0.3s;">personal</span>
+        <span class="hero-title-word" style="animation-delay: 0.4s;">brand</span>
+        <span class="hero-title-word" style="animation-delay: 0.5s;">that</span>
+        <span class="hero-title-word" style="animation-delay: 0.5s;">opens</span>
+        <span class="hero-title-word" style="animation-delay: 0.5s;">doors</span>
+        <br class="hidden sm:block">
+        <span class="hero-title-word gradient-text-animated" style="animation-delay: 0.7s;">opens doors</span>
+      </h1>
+      
+      <!-- Subtitle -->
+      <div class="max-w-3xl mx-auto mb-14">
+        <p class="hero-subtitle text-lg lg:text-xl xl:text-2xl text-neutral-300 leading-relaxed animate-fade-in-delay-2 font-light">
           We help professionals transform their digital presence into influential personal brands that create lasting impact and drive real opportunities.
         </p>
-        
-        <div class="flex flex-wrap gap-4 mb-20 animate-fade-in-delay-3">
-          <a href="#contact" class="px-8 py-4 text-sm font-semibold text-white bg-accent rounded-full hover:bg-accent-light transition-colors duration-200">
-            Schedule Consultation
-          </a>
-          <a href="#about" class="px-8 py-4 text-sm font-semibold text-white border border-neutral-700 rounded-full hover:bg-neutral-800/50 transition-colors duration-200">
-            Learn More
-          </a>
+      </div>
+      
+      <!-- CTA Buttons -->
+      <div class="flex flex-wrap justify-center gap-5 mb-20 animate-fade-in-delay-3">
+        <a href="#contact" class="hero-btn-primary px-10 py-5 text-sm font-semibold text-white rounded-full flex items-center gap-3">
+          <span>Schedule Consultation</span>
+          <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+        <a href="#about" class="hero-btn-secondary px-10 py-5 text-sm font-semibold text-white rounded-full flex items-center gap-3">
+          <i class="fas fa-play text-xs"></i>
+          <span>Learn More</span>
+        </a>
+      </div>
+      
+      <!-- Stats Cards -->
+      <div class="flex flex-wrap justify-center gap-6 lg:gap-8 animate-fade-in-delay-3">
+        <div class="stat-card px-8 py-6 rounded-2xl text-center min-w-[140px]">
+          <div class="text-4xl lg:text-5xl font-display font-bold gradient-text-animated stat-number mb-1">500+</div>
+          <div class="text-sm text-neutral-400 font-medium tracking-wide">Brands Built</div>
         </div>
-        
-        <div class="grid grid-cols-3 gap-12 max-w-lg animate-fade-in-delay-3">
-          <div>
-            <div class="text-3xl lg:text-4xl font-semibold text-accent tracking-tight">500+</div>
-            <div class="text-sm text-neutral-500 mt-1">Brands Built</div>
-          </div>
-          <div>
-            <div class="text-3xl lg:text-4xl font-semibold text-accent tracking-tight">100%</div>
-            <div class="text-sm text-neutral-500 mt-1">Success Rate</div>
-          </div>
-          <div>
-            <div class="text-3xl lg:text-4xl font-semibold text-accent tracking-tight">15+</div>
-            <div class="text-sm text-neutral-500 mt-1">Years Experience</div>
-          </div>
+        <div class="stat-card px-8 py-6 rounded-2xl text-center min-w-[140px]">
+          <div class="text-4xl lg:text-5xl font-display font-bold gradient-text-animated stat-number mb-1">100%</div>
+          <div class="text-sm text-neutral-400 font-medium tracking-wide">Success Rate</div>
+        </div>
+        <div class="stat-card px-8 py-6 rounded-2xl text-center min-w-[140px]">
+          <div class="text-4xl lg:text-5xl font-display font-bold gradient-text-animated stat-number mb-1">15+</div>
+          <div class="text-sm text-neutral-400 font-medium tracking-wide">Years Experience</div>
         </div>
       </div>
     </div>
     
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
-      <div class="animate-subtle-pulse">
-        <i class="fas fa-chevron-down text-neutral-600 text-sm"></i>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <span class="text-xs text-neutral-500 tracking-widest uppercase">Scroll</span>
+      <div class="scroll-indicator">
+        <div class="w-6 h-10 border-2 border-neutral-600 rounded-full flex justify-center pt-2">
+          <div class="w-1 h-2 bg-accent rounded-full animate-bounce"></div>
+        </div>
       </div>
     </div>
+    
+    <!-- Bottom gradient fade -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-neutral-950 to-transparent pointer-events-none"></div>
   </section>
 
   <!-- About Section -->
