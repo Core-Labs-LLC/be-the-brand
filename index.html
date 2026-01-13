@@ -1146,36 +1146,58 @@
   </section>
 
    <!-- CTA Section -->
-   <section id="cta" class="py-32 bg-neutral-950">
-    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center scroll-animate">
-      <h2 class="text-4xl lg:text-5xl font-display font-semibold text-white leading-tight tracking-tight mb-6">
-        Ready to build your brand?
+   <section id="cta" class="py-32 bg-neutral-950 relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/10 rounded-full blur-3xl"></div>
+    <div class="absolute top-0 left-0 w-[400px] h-[400px] bg-accent-secondary/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+    
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10 scroll-animate">
+      <!-- Badge -->
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-medium text-accent bg-accent/10 border border-accent/20 rounded-full mb-8">
+        <i class="fas fa-rocket text-xs"></i>
+        Start Your Journey Today
+      </span>
+      
+      <h2 class="text-4xl lg:text-6xl font-display font-semibold text-white leading-tight tracking-tight mb-6">
+        Ready to build your 
+        <span class="gradient-text">brand?</span>
       </h2>
-      <p class="text-lg text-neutral-400 mb-10 max-w-2xl mx-auto">
+      <p class="text-lg lg:text-xl text-neutral-400 mb-12 max-w-2xl mx-auto">
         Join hundreds of professionals who have transformed their careers through strategic personal branding.
       </p>
-      
-      <div class="flex flex-wrap justify-center gap-4 mb-12">
-        <a href="#contact" class="px-8 py-4 text-sm font-semibold text-white bg-accent rounded-full hover:bg-accent-light transition-colors">
+
+      <div class="flex flex-wrap justify-center gap-4 mb-14">
+        <a href="#contact" class="group px-10 py-5 text-sm font-semibold text-white bg-accent rounded-full hover:bg-accent-light transition-all duration-300 flex items-center gap-3 hover:gap-4 shadow-lg shadow-accent/25">
+          <i class="fas fa-calendar-alt"></i>
           Schedule Free Consultation
+          <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
         </a>
-        <a href="#" class="px-8 py-4 text-sm font-semibold text-white border border-neutral-700 rounded-full hover:bg-neutral-800 transition-colors">
+        <a href="#" class="group px-10 py-5 text-sm font-semibold text-white border border-neutral-600 rounded-full hover:bg-white/5 hover:border-neutral-500 transition-all duration-300 flex items-center gap-3">
+          <i class="fas fa-download"></i>
           Download Brand Guide
         </a>
       </div>
-      
-      <div class="flex flex-wrap justify-center gap-8 text-sm text-neutral-500">
-        <div class="flex items-center gap-2">
-          <i class="fas fa-check text-accent text-xs"></i>
-          Free 30-Minute Consultation
+
+      <!-- Trust indicators with enhanced styling -->
+      <div class="inline-flex flex-wrap justify-center gap-6 lg:gap-10 p-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl backdrop-blur-sm">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+            <i class="fas fa-clock text-accent text-sm"></i>
+          </div>
+          <span class="text-sm text-neutral-300">Free 30-Minute Consultation</span>
         </div>
-        <div class="flex items-center gap-2">
-          <i class="fas fa-check text-accent text-xs"></i>
-          No Long-Term Contracts
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+            <i class="fas fa-file-contract text-accent text-sm"></i>
+          </div>
+          <span class="text-sm text-neutral-300">No Long-Term Contracts</span>
         </div>
-        <div class="flex items-center gap-2">
-          <i class="fas fa-check text-accent text-xs"></i>
-          Satisfaction Guaranteed
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+            <i class="fas fa-shield-alt text-accent text-sm"></i>
+          </div>
+          <span class="text-sm text-neutral-300">Satisfaction Guaranteed</span>
         </div>
       </div>
     </div>
